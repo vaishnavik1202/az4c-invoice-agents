@@ -1,0 +1,7 @@
+{
+  "case_id": "UC1-T12",
+  "input": {
+    "invoice_id": "INV-20007"
+  },
+  "_note": "Clean match above Rs 5 lakh: pay but needs AP manager approval"
+}

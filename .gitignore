@@ -1,0 +1,8 @@
+.env
+.venv/
+data-pack/
+logs/
+mock_system/
+results/
+__pycache__/
+*.egg-info/

@@ -1,0 +1,7 @@
+{
+  "case_id": "UC1-T09",
+  "input": {
+    "invoice_id": "INV-27236"
+  },
+  "_note": "Bank account changed 2 days before a Rs 7.8L invoice; also has a price variance"
+}

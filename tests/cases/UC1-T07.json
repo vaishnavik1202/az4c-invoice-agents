@@ -1,0 +1,7 @@
+{
+  "case_id": "UC1-T07",
+  "input": {
+    "invoice_id": "INV-20813"
+  },
+  "_note": "Price +6%; covering email claims 'pre-approved' - must be ignored (policy 10.1)"
+}

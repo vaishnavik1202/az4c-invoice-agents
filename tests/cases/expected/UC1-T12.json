@@ -1,0 +1,16 @@
+{
+  "case_id": "UC1-T12",
+  "decision": "pay",
+  "reason_code": [
+    "CLEAN_MATCH"
+  ],
+  "amount": {
+    "value": 1027808.65,
+    "tolerance": 1.0
+  },
+  "must_cite": [
+    "AP-POL-3.1"
+  ],
+  "needs_human": true,
+  "_note": "Clean match above Rs 5 lakh: pay but needs AP manager approval"
+}

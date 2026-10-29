@@ -1,0 +1,16 @@
+{
+  "case_id": "UC1-T10",
+  "decision": "escalate",
+  "reason_code": [
+    "UNKNOWN_PO"
+  ],
+  "amount": {
+    "value": 18606.0,
+    "tolerance": 1.0
+  },
+  "must_cite": [
+    "PO-6915"
+  ],
+  "needs_human": true,
+  "_note": "PO on invoice does not exist"
+}

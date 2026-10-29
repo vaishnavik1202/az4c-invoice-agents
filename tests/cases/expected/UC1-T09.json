@@ -1,0 +1,16 @@
+{
+  "case_id": "UC1-T09",
+  "decision": "escalate",
+  "reason_code": [
+    "BANK_CHANGE_RISK"
+  ],
+  "amount": {
+    "value": 777987.75,
+    "tolerance": 1.0
+  },
+  "must_cite": [
+    "V-1032"
+  ],
+  "needs_human": true,
+  "_note": "Bank account changed 2 days before a Rs 7.8L invoice; also has a price variance"
+}

@@ -1,0 +1,7 @@
+{
+  "case_id": "UC1-T06",
+  "input": {
+    "invoice_id": "INV-28126"
+  },
+  "_note": "Duplicate: same vendor+total as paid INV-20274, invoice no differs only by case/dash"
+}

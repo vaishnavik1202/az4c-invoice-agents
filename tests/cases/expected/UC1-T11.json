@@ -1,0 +1,16 @@
+{
+  "case_id": "UC1-T11",
+  "decision": "escalate",
+  "reason_code": [
+    "VENDOR_BLOCKED"
+  ],
+  "amount": {
+    "value": 681281.08,
+    "tolerance": 1.0
+  },
+  "must_cite": [
+    "V-1025"
+  ],
+  "needs_human": true,
+  "_note": "Vendor is blocked"
+}

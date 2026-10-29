@@ -1,0 +1,37 @@
+flowchart TB
+    CASE["Case file<br/>{case_id, invoice_id}"] --> CLI["python -m app run / eval"]
+    CLI --> PLAN
+
+    subgraph ORCH["Orchestrator (Groq gpt-oss-120b)"]
+        PLAN["1 PLAN<br/>get_case_overview → choose specialists"]
+        DECIDE["3 DECIDE<br/>apply AP-POL 7 + 8 to reports"]
+    end
+
+    PLAN -- "plan validator<br/>(policy coverage)" --> SPECS
+
+    subgraph SPECS["2 Specialists (Groq gpt-oss-20b) — each runs its own tool loop"]
+        DEL["delivery_specialist<br/>PO · GRN · quantity"]
+        PRI["pricing_tax_specialist<br/>price · signed revisions · GST"]
+        RISK["vendor_risk_specialist<br/>duplicate · blocked · bank change"]
+        DOC["document_specialist<br/>vendor email · agreements<br/>(only if an email exists)"]
+    end
+
+    SPECS -- "grounding validator<br/>(report must match tool facts)" --> DECIDE
+
+    subgraph TOOLS["Tools (plain Python, read-only)"]
+        CHK["checks.py<br/>policy checks → computed facts"]
+        DATA["data.py<br/>SQLite lookups"]
+        DOCS["docs.py<br/>policy · agreements · emails"]
+    end
+
+    DEL & PRI & RISK & DOC --> TOOLS
+    CHK --> DATA & DOCS
+    DATA --> DB[("DATA_DIR/data/ap.sqlite")]
+    DOCS --> MD[("DATA_DIR/docs/*.md")]
+
+    DECIDE -- "decision validator<br/>(recomputes policy outcome)" --> OUT["result.json<br/>decision · reason · amount · citations · needs_human"]
+    OUT --> MOCK["mock_system/<br/>erp_payment_status.jsonl<br/>outbox/&lt;invoice&gt;.md (holds)"]
+
+    LLM["llm.py: timeout · retry 429/5xx · fallback model"] -.-> ORCH
+    LLM -.-> SPECS
+    LLM -.-> LOGS[("logs/&lt;trace_id&gt;.jsonl<br/>every model call + events")]

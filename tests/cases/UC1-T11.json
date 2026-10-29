@@ -1,0 +1,7 @@
+{
+  "case_id": "UC1-T11",
+  "input": {
+    "invoice_id": "INV-20339"
+  },
+  "_note": "Vendor is blocked"
+}
